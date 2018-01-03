@@ -16,5 +16,3 @@ const setPhone = (phone)=>({
 });
 
 export {setName, setPsw, setConfirmPsw, setPhone};
-
-

@@ -11,7 +11,7 @@ it("isValid reducer", ()=>{
   expect(isValid(undefined, {})).toEqual(state);
   expect(isValid(state, {
     type:"isValidName",
-    isValidName:true,
+    name:"aaa",
   })).toEqual({
     isValidName:true,
     isValidPsw:false,
@@ -21,11 +21,22 @@ it("isValid reducer", ()=>{
   });
   expect(isValid(state, {
     type:"isValidPsw",
-    isValidPsw:true,
-    confirmedPsw:true,
+    psw:"Aaaaaaaa",
+    confirmPsw:"Aaaaaaaa",
   })).toEqual({
     isValidName:false,
     isValidPsw:true,
+    confirmedPsw:true,
+    isValidPhone:false,
+    submitted:false,
+  });
+  expect(isValid(state, {
+    type:"confirmedPsw",
+    confirmPsw:"Aaaaaaaa",
+    psw:"Aaaaaaaa",
+  })).toEqual({
+    isValidName:false,
+    isValidPsw:false,
     confirmedPsw:true,
     isValidPhone:false,
     submitted:false,
@@ -38,7 +49,7 @@ it("isValid reducer", ()=>{
     submitted:true,
   }, {
     type:"isValidPhone",
-    isValidPhone:true,
+    phone:"82408888",
   })).toEqual({
     isValidName:false,
     isValidPsw:true,
@@ -62,11 +73,3 @@ it("isValid reducer", ()=>{
     submitted:true,
   });
 });
-
-
-
-
-
-
-
-

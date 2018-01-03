@@ -1,19 +1,20 @@
-const isValidName = (isValidName)=>({
+const isValidName = (name)=>({
   type: "isValidName",
-  isValidName: isValidName,
+  name: name,
 });
-const isValidPsw = (isValidPsw, confirmedPsw)=>({
+const isValidPsw = (psw, confirmPsw)=>({
   type: "isValidPsw",
-  isValidPsw: isValidPsw,
-  confirmedPsw: confirmedPsw,
+  psw: psw,
+  confirmPsw: confirmPsw,
 });
-const confirmedPsw = (confirmedPsw)=>({
+const confirmedPsw = (confirmPsw, psw)=>({
   type: "confirmedPsw",
-  confirmedPsw: confirmedPsw,
+  confirmPsw: confirmPsw,
+  psw: psw,
 });
-const isValidPhone = (isValidPhone)=>({
+const isValidPhone = (phone)=>({
   type: "isValidPhone",
-  isValidPhone: isValidPhone,
+  phone: phone,
 });
 const submitted = ()=>({
   type: "submitted",

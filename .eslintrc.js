@@ -30,6 +30,8 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "before": "never",
+        "after" : "never"
     }
 };

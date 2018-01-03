@@ -1,27 +1,25 @@
 import * as isValidActions from "../../actions/isValidActions.js";
 
 it("isValidActions", ()=>{
-  expect(isValidActions.isValidName(true)).toEqual({
+  expect(isValidActions.isValidName("aaa")).toEqual({
     type:"isValidName",
-    isValidName:true,
+    name:"aaa",
   });
-  expect(isValidActions.isValidPsw(true, true)).toEqual({
+  expect(isValidActions.isValidPsw("aaa", "bbb")).toEqual({
     type:"isValidPsw",
-    isValidPsw:true,
-    confirmedPsw:true,
+    psw:"aaa",
+    confirmPsw:"bbb",
   });
-  expect(isValidActions.confirmedPsw(true)).toEqual({
+  expect(isValidActions.confirmedPsw("aaa", "bbb")).toEqual({
     type:"confirmedPsw",
-    confirmedPsw:true,
+    confirmPsw:"aaa",
+    psw:"bbb",
   });
-  expect(isValidActions.isValidPhone(true)).toEqual({
+  expect(isValidActions.isValidPhone("111")).toEqual({
     type:"isValidPhone",
-    isValidPhone:true,
+    phone:"111",
   });
   expect(isValidActions.submitted()).toEqual({
     type:"submitted",
   });
 });
-
-
-
