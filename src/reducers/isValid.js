@@ -5,34 +5,28 @@ const isValid = (state = {
   isValidPhone:false,
   submitted:false,
 }, action) => {
-  let isValidName, isValidPsw, confirmedPsw, isValidPhone;
   switch(action.type){
   case "isValidName":
-    isValidName = action.name !== "";
     return Object.assign({}, state, {
-      isValidName: isValidName,
+      isValidName: action.name !== "",
       submitted: false,
     });
   case "isValidPsw":
     const regUpper = /[A-Z]/;
     const reglower = /[a-z]/;
-    isValidPsw = regUpper.test(action.psw) && reglower.test(action.psw) && action.psw.length >= 8;
-    confirmedPsw = action.psw === action.confirmPsw;
     return Object.assign({}, state, {
-      isValidPsw: isValidPsw,
-      confirmedPsw: confirmedPsw,
+      isValidPsw: regUpper.test(action.psw) && reglower.test(action.psw) && action.psw.length >= 8,
+      confirmedPsw: action.psw === action.confirmPsw,
       submitted: false,
     });
   case "confirmedPsw":
-    confirmedPsw = action.confirmPsw === action.psw;
     return Object.assign({}, state, {
-      confirmedPsw: confirmedPsw,
+      confirmedPsw: action.confirmPsw === action.psw,
       submitted: false,
     });
   case "isValidPhone":
-    isValidPhone = (/^1(3|4|5|7|8)\d{9}$/).test(action.phone) || (/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/).test(action.phone);
     return Object.assign({}, state, {
-      isValidPhone:isValidPhone,
+      isValidPhone:(/^1(3|4|5|7|8)\d{9}$/).test(action.phone) || (/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/).test(action.phone),
       submitted: false,
     });
   case "submitted":
